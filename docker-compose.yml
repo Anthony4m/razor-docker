@@ -1,0 +1,36 @@
+# version: "3"
+# services:
+#   react-app:
+#     restart: always
+#     build:
+#       context: ./razor-grip-msg
+#       dockerfile: ./Dockerfile
+#     image: 'razor-frontend'
+#     stdin_open: true
+#     ports:
+#       - "3000:3000"
+#   api-server:
+#     restart: always
+#     build:
+#       context: ./razor-grip-node
+#       dockerfile: ./Dockerfile
+#     image: 'razor-backend'
+#     stdin_open: true
+#     ports: 
+#       - "3001:3001"
+
+version: "3"
+services:
+  react-client:
+    container_name: react-client
+    restart: always
+    build: ./razor-grip-msg
+    ports:
+      - "3000:3000"
+  node-socket:
+    restart: always
+    container_name: node-socket
+    restart: always
+    build: ./razor-grip-node
+    ports: 
+      - "3001:3001"
